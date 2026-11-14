@@ -211,7 +211,7 @@ export default function Home() {
       `}</style>
 
       {/* Scroll progress */}
-      <div className="fixed top-0 left-0 w-full h-0.5 z-[60] bg-transparent pointer-events-none">
+      <div className="fixed top-0 left-0 w-full h-0.5 z-60 bg-transparent pointer-events-none">
         <div ref={progressRef} className="h-full bg-linear-to-r from-[#58111A] via-[#C5A059] to-[#F3E3B3]" style={{ width: '0%' }}></div>
       </div>
 
@@ -360,18 +360,7 @@ export default function Home() {
         <div className="absolute inset-0 dots-bg opacity-30"></div>
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
           <div className="grid md:grid-cols-12 gap-12 items-center">
-            {/* Monogram emblem */}
-            <div className="md:col-span-4 hidden md:flex justify-center reveal">
-              <div className="relative w-60 h-60 lg:w-72 lg:h-72 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full border border-dashed border-[#C5A059]/50" style={{ animation: 'spinSlow 50s linear infinite' }}></div>
-                <div className="absolute inset-5 rounded-full border border-[#C5A059]/30"></div>
-                <div className="absolute inset-10 rounded-full bg-[#1A0509]/60 backdrop-blur-sm"></div>
-                <div className="relative text-center">
-                  <span className="font-serif text-8xl gold-text leading-none block">A</span>
-                  <span className="text-[10px] tracking-[0.4em] uppercase text-[#C5A059] mt-3 block">Est. 2026</span>
-                </div>
-              </div>
-            </div>
+            <div className="md:col-span-4 hidden md:block"></div>
             <div className="md:col-span-8 bg-white/95 backdrop-blur-lg rounded-3xl p-10 md:p-16 border border-white/50 shadow-2xl reveal" style={{ '--d': '150ms' }}>
               <span className="text-[#C5A059] text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Heritage</span>
               <h2 className="text-3xl md:text-5xl font-serif font-medium text-[#3B0B13] mb-6">{content.about_title || 'Our Origin Story'}</h2>
@@ -386,7 +375,7 @@ export default function Home() {
       {content.show_menu === 'true' && menuItems.length > 0 && (
         <section id="menu" className="py-32 relative bg-[#2A080E] overflow-hidden">
           <div className="absolute inset-0 dots-bg opacity-40"></div>
-          <div className="absolute -top-40 -right-40 w-[36rem] h-[36rem] rounded-full bg-[#58111A]/50 blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-xl h-[36rem] rounded-full bg-[#58111A]/50 blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-[30rem] h-[30rem] rounded-full bg-[#C5A059]/10 blur-3xl"></div>
           <BigNumber n="01" className="top-6 right-4" />
 
