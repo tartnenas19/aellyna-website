@@ -109,7 +109,7 @@ export default function Home() {
   const filteredMenu = activeMenuCategory === 'All' ? menuItems : menuItems.filter(item => item.category === activeMenuCategory);
 
   return (
-    <main className="selection:bg-[#58111A] selection:text-[#C5A059] bg-[#FAF7F5] text-stone-800 antialiased scroll-smooth">
+    <main className="selection:bg-[#58111A] selection:text-[#C5A059] bg-[#1A0509] text-stone-200 antialiased scroll-smooth">
       
       {/* Navigation - Dynamic Island Style */}
       <div className="fixed top-6 w-full z-50 flex justify-center px-4 pointer-events-none">
@@ -145,15 +145,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-linear-to-r from-[#1A0509]/90 via-[#2A080E]/60 to-black/30"></div>
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pt-10">
           <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-8 lg:col-span-7 bg-white/85 backdrop-blur-lg rounded-3xl p-10 md:p-14 border border-white/60 shadow-2xl shadow-[#2A080E]/15">
+            <div className="md:col-span-8 lg:col-span-7 bg-[#1A0509]/80 backdrop-blur-lg rounded-3xl p-10 md:p-14 border border-[#C5A059]/20 shadow-2xl shadow-black/30">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-0.5 bg-[#C5A059]"></div>
-                <p className="text-[#58111A] font-semibold tracking-[0.2em] text-xs uppercase">{content.hero_subtitle || 'Est. 2026'}</p>
+                <p className="text-[#C5A059] font-semibold tracking-[0.2em] text-xs uppercase">{content.hero_subtitle || 'Est. 2026'}</p>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-[#3B0B13] mb-6 leading-[1.15]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-white mb-6 leading-[1.15]">
                 {content.hero_title || 'Elevating the Art of Pastry & Beverage.'}
               </h1>
-              <p className="text-base md:text-lg text-stone-700 font-normal mb-6 leading-relaxed">
+              <p className="text-base md:text-lg text-stone-300 font-normal mb-6 leading-relaxed">
                 {content.hero_desc}
               </p>
             </div>
@@ -196,18 +196,18 @@ export default function Home() {
 
       {/* Menu Section (Restored) */}
       {content.show_menu === 'true' && menuItems.length > 0 && (
-        <section id="menu" className="py-32 relative bg-[#FAF7F5]">
+        <section id="menu" className="py-32 relative bg-[#2A080E]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span className="text-[#C5A059] text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Artisanal Selection</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-[#3B0B13] font-medium mb-8">Our Creations</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white font-medium mb-8">Our Creations</h2>
               
               <div className="flex flex-wrap justify-center gap-3">
                 {menuCategories.map(cat => (
                   <button 
                     key={cat} 
                     onClick={() => setActiveMenuCategory(cat)}
-                    className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${activeMenuCategory === cat ? 'bg-[#58111A] text-white shadow-md' : 'bg-white border border-stone-200 text-stone-500 hover:border-[#C5A059]'}`}
+                    className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${activeMenuCategory === cat ? 'bg-[#C5A059] text-[#2A080E] shadow-md' : 'bg-white/5 border border-white/10 text-stone-300 hover:border-[#C5A059]'}`}
                   >
                     {cat}
                   </button>
@@ -217,17 +217,17 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredMenu.map((item) => (
-                <div key={item.id} className="bg-white rounded-3xl p-5 border border-stone-100 shadow-sm hover:shadow-xl transition-all group">
+                <div key={item.id} className="bg-white/5 backdrop-blur-sm rounded-3xl p-5 border border-[#C5A059]/15 hover:border-[#C5A059]/50 hover:shadow-xl hover:shadow-black/30 transition-all group">
                   {item.image_url && (
-                    <div className="w-full aspect-square rounded-2xl overflow-hidden mb-5 bg-stone-100">
+                    <div className="w-full aspect-square rounded-2xl overflow-hidden mb-5 bg-white/5">
                       <img src={item.image_url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   )}
                   <div className="flex justify-between items-start gap-4 mb-2">
-                    <h3 className="font-serif font-medium text-lg text-[#3B0B13]">{item.title}</h3>
+                    <h3 className="font-serif font-medium text-lg text-white">{item.title}</h3>
                     <span className="font-semibold text-[#C5A059]">${item.price}</span>
                   </div>
-                  <p className="text-sm text-stone-500 line-clamp-2">{item.description}</p>
+                  <p className="text-sm text-stone-400 line-clamp-2">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -236,7 +236,7 @@ export default function Home() {
       )}
 
       {/* Founder Section */}
-      <section id="founder" className="py-32 relative bg-[#F4EFEA] border-y border-[#C5A059]/10">
+      <section id="founder" className="py-32 relative bg-[#1A0509] border-y border-[#C5A059]/10">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 relative w-full aspect-4/5 rounded-3xl overflow-hidden shadow-2xl shadow-[#3B0B13]/15 border border-[#C5A059]/30 bg-[#3B0B13]">
@@ -250,10 +250,10 @@ export default function Home() {
             </div>
             <div className="lg:col-span-7">
               <span className="text-[#C5A059] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">The Visionary</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-[#3B0B13] mb-8 font-medium">{content.founder_title || 'Meet the Founder'}</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white mb-8 font-medium">{content.founder_title || 'Meet the Founder'}</h2>
               <div className="w-12 h-0.5 bg-[#C5A059]/60 mb-8"></div>
-              <p className="text-base md:text-lg text-stone-700 leading-relaxed font-normal mb-6 whitespace-pre-line">{content.founder_desc_1}</p>
-              <p className="text-base md:text-lg text-stone-700 leading-relaxed font-normal whitespace-pre-line">{content.founder_desc_2}</p>
+              <p className="text-base md:text-lg text-stone-300 leading-relaxed font-normal mb-6 whitespace-pre-line">{content.founder_desc_1}</p>
+              <p className="text-base md:text-lg text-stone-300 leading-relaxed font-normal whitespace-pre-line">{content.founder_desc_2}</p>
             </div>
           </div>
         </div>
@@ -261,36 +261,36 @@ export default function Home() {
 
       {/* Achievements Section */}
       {achievements.length > 0 && (
-        <section id="achievements" className="py-32 relative bg-[#FAF7F5]">
+        <section id="achievements" className="py-32 relative bg-[#2A080E]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span className="text-[#C5A059] text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Excellence</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-[#3B0B13] font-medium">Milestones & Recognition</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white font-medium">Milestones & Recognition</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {achievements.map((item) => (
-                <div key={item.id} className="bg-white/80 backdrop-blur-lg rounded-3xl p-6 border border-[#C5A059]/20 hover:border-[#C5A059]/60 transition-all flex flex-col group shadow-sm hover:shadow-xl hover:-translate-y-1">
+                <div key={item.id} className="bg-white/5 backdrop-blur-lg rounded-3xl p-6 border border-[#C5A059]/20 hover:border-[#C5A059]/60 transition-all flex flex-col group shadow-sm hover:shadow-xl hover:-translate-y-1">
                   <div>
-                    <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-stone-100 border border-stone-200/80 mb-6 flex items-center justify-center group-hover:shadow-inner">
+                    <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-6 flex items-center justify-center group-hover:shadow-inner">
                       {item.file_type === 'pdf' ? (
                         <div className="flex flex-col items-center justify-center p-6 text-center">
-                          <div className="w-14 h-14 bg-[#58111A]/10 rounded-full flex items-center justify-center text-[#58111A] font-semibold text-xs mb-3 shadow-sm group-hover:scale-110 transition-transform">PDF</div>
-                          <span className="text-[11px] font-semibold text-stone-500 uppercase tracking-widest">Dokumen / Sijil</span>
+                          <div className="w-14 h-14 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] font-semibold text-xs mb-3 shadow-sm group-hover:scale-110 transition-transform">PDF</div>
+                          <span className="text-[11px] font-semibold text-stone-400 uppercase tracking-widest">Dokumen / Sijil</span>
                         </div>
                       ) : (
                         <img src={item.file_url} alt={item.title || 'Sijil Pencapaian'} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => setSelectedMedia(item.file_url)} />
                       )}
                     </div>
-                    <h3 className="font-serif font-semibold text-[#3B0B13] text-xl mb-4 line-clamp-2">{item.title || 'Pencapaian'}</h3>
+                    <h3 className="font-serif font-semibold text-white text-xl mb-4 line-clamp-2">{item.title || 'Pencapaian'}</h3>
                   </div>
                   <div className="pt-4 border-t border-[#C5A059]/15 mt-auto">
                     {item.file_type === 'pdf' ? (
-                      <a href={item.file_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold text-[#58111A] hover:text-[#C5A059] transition-colors uppercase tracking-widest">
+                      <a href={item.file_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold text-[#C5A059] hover:text-white transition-colors uppercase tracking-widest">
                         <span>Enlarge</span>
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                       </a>
                     ) : (
-                      <button onClick={() => setSelectedMedia(item.file_url)} className="inline-flex items-center gap-2 text-xs font-semibold text-[#58111A] hover:text-[#C5A059] transition-colors uppercase tracking-widest">
+                      <button onClick={() => setSelectedMedia(item.file_url)} className="inline-flex items-center gap-2 text-xs font-semibold text-[#C5A059] hover:text-white transition-colors uppercase tracking-widest">
                         <span>Enlarge</span>
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                       </button>
